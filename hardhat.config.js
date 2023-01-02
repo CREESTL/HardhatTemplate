@@ -13,12 +13,11 @@ require("hardhat-tracer");
 require("@primitivefi/hardhat-dodoc");
 require("dotenv").config();
 
-// TODO add acc PK here
-
 // Add some .env individual variables
 const INFURA_API_KEY = process.env.INFURA_API_KEY;
 const ALCHEMY_API_URL = process.env.ALCHEMY_API_URL;
 const COINMARKETCAP_API_KEY = process.env.COINMARKETCAP_API_KEY;
+const ACC_PRIVATE_KEY = process.env.ACC_PRIVATE_KEY;
 
 const REPORT_GAS = process.env.REPORT_GAS || "true";
 const GAS_REPORTER_TOKEN = process.env.GAS_REPORTER_TOKEN || "ETH";
@@ -28,10 +27,9 @@ const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "";
 const BSCSCAN_API_KEY = process.env.BSCSCAN_API_KEY || "";
 const POLYGONSCAN_API_KEY = process.env.POLYGONSCAN_API_KEY || "";
 
-const MNEMONIC = process.env.MNEMONIC || "";
-
 // Use AlchemyAPI to make fork if its URL specifyed else use the Infura API;
-const FORKING_URL = ALCHEMY_API_URL || `https://mainnet.infura.io/v3/${INFURA_API_KEY}`;
+const FORKING_URL =
+    ALCHEMY_API_URL || `https://mainnet.infura.io/v3/${INFURA_API_KEY}`;
 const BLOCK_NUMBER = 15073606;
 
 module.exports = {
@@ -39,7 +37,7 @@ module.exports = {
     solidity: {
         compilers: [
             {
-                version: "0.8.14",
+                version: "0.8.17",
                 settings: {
                     optimizer: {
                         enabled: true,
@@ -57,69 +55,59 @@ module.exports = {
                 // specifing blockNumber available only for AlchemyAPI
                 blockNumber: ALCHEMY_API_URL ? BLOCK_NUMBER : undefined,
             },
-            accounts: {
-                mnemonic: MNEMONIC,
-                accountsBalance: ethers.utils.parseEther('1000000').toString(),
-            },
+            tags: ["local", "test"],
         },
         localhost: {
             gasMultiplier: 1.2,
+            tags: ["local", "test"],
         },
         mainnet: {
             url: `https://mainnet.infura.io/v3/${INFURA_API_KEY}`,
-            accounts: {
-                mnemonic: MNEMONIC,
-            },
-            saveDeployments: true
+            accounts: [ACC_PRIVATE_KEY],
+            saveDeployments: true,
+            tags: ["live", "main"],
         },
         kovan: {
             url: `https://kovan.infura.io/v3/${INFURA_API_KEY}`,
-            accounts: {
-                mnemonic: MNEMONIC,
-            },
-            saveDeployments: true
+            accounts: [ACC_PRIVATE_KEY],
+            saveDeployments: true,
+            tags: ["live", "test"],
         },
         rinkeby: {
             url: `https://rinkeby.infura.io/v3/${INFURA_API_KEY}`,
-            accounts: {
-                mnemonic: MNEMONIC,
-            },
-            saveDeployments: true
+            accounts: [ACC_PRIVATE_KEY],
+            saveDeployments: true,
+            tags: ["live", "test"],
         },
         goerli: {
             url: `https://goerli.infura.io/v3/${INFURA_API_KEY}`,
-            accounts: {
-                mnemonic: MNEMONIC,
-            },
-            saveDeployments: true
+            accounts: [ACC_PRIVATE_KEY],
+            saveDeployments: true,
+            tags: ["live", "test"],
         },
         polygon_mainnet: {
             url: `https://rpc-mainnet.maticvigil.com/`,
-            accounts: {
-                mnemonic: MNEMONIC,
-            },
-            saveDeployments: true
+            accounts: [ACC_PRIVATE_KEY],
+            saveDeployments: true,
+            tags: ["live", "main"],
         },
         polygon_testnet: {
             url: `https://matic-testnet-archive-rpc.bwarelabs.com`,
-            accounts: {
-                mnemonic: MNEMONIC,
-            },
-            saveDeployments: true
+            accounts: [ACC_PRIVATE_KEY],
+            saveDeployments: true,
+            tags: ["live", "test"],
         },
         bsc_mainnet: {
             url: "https://bsc-dataseed.binance.org/",
-            accounts: {
-                mnemonic: MNEMONIC,
-            },
-            saveDeployments: true
+            accounts: [ACC_PRIVATE_KEY],
+            saveDeployments: true,
+            tags: ["live", "main"],
         },
         bsc_testnet: {
             url: "https://data-seed-prebsc-1-s1.binance.org:8545",
-            accounts: {
-                mnemonic: MNEMONIC,
-            },
-            saveDeployments: true
+            accounts: [ACC_PRIVATE_KEY],
+            saveDeployments: true,
+            tags: ["live", "test"],
         },
         coverage: {
             url: "http://127.0.0.1:8555",
@@ -127,8 +115,8 @@ module.exports = {
     },
     namedAccounts: {
         deployer: {
-            default: 0
-        }
+            default: 0,
+        },
     },
     mocha: {
         timeout: 20000000,
@@ -143,10 +131,6 @@ module.exports = {
         token: GAS_REPORTER_TOKEN,
         gasPriceApi: GAS_PRICE_API,
     },
-    typechain: {
-        outDir: "./build/typechain",
-        externalArtifacts: ['libs/**/abis/**/*.json'],
-    },
     abiExporter: {
         path: "./build/abis",
         runOnCompile: true,
@@ -158,11 +142,11 @@ module.exports = {
         alphaSort: true,
         disambiguatePaths: true,
         strict: true,
-        runOnCompile: true
+        runOnCompile: true,
     },
     dodoc: {
         include: [],
-        runOnCompile: true,
+        runOnCompile: false,
         freshOutput: true,
         outputDir: "./docs/contracts",
     },
@@ -173,6 +157,7 @@ module.exports = {
         cache: "./build/cache",
         deployments: "./build/deployments",
     },
+    // For default hardhat verification
     etherscan: {
         apiKey: {
             mainnet: ETHERSCAN_API_KEY,
@@ -184,5 +169,5 @@ module.exports = {
             polygon: POLYGONSCAN_API_KEY,
             polygonMumbai: POLYGONSCAN_API_KEY,
         },
-    }
+    },
 };
