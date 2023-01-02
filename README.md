@@ -4,11 +4,14 @@ _short project description here_
 
 #### Table on contents
 
-[Prereqiusites](#preqs)
-[Test](#tests)  
-[Run](#run)  
-[Wallets](#wallets)  
-[Logic](#logic)
+[Prereqiusites](#preqs)  
+[Build](#build)   
+[Test](#tests)      
+[Run Scripts](#run)   
+[Deploy](#deploy)  
+[Networks](#networks)  
+[Wallets](#wallets)    
+[Logic](#logic)  
 
 <a name="preqs">
 
@@ -18,21 +21,24 @@ _short project description here_
 - Install [Node.js](https://nodejs.org/en/download/)
 - Clone this repository with _git clone command here_
 - Navigate to the directory with the cloned code
-- Install Harhdat with `npm install --save-dev hardhat`
+- Install Hardhat with `npm install --save-dev hardhat`
 - Install all required dependencies with `npm install`
 - Create a file called `.env` in the root of the project with the same contents as `.env.example`
-- _examples of .env values here_
+- Place your secret API keys, private keys, etc. to the `.env` file
 
   :warning:**DO NOT SHARE YOUR .env FILE IN ANY WAY OR YOU RISK TO LOSE ALL YOUR FUNDS**:warning:
-  <a name="tests"/>
+
+<a name="build"/> 
+
+### Build
+
+```
+npx hardhat compile
+```
+
+<a name="tests"/>
 
 ### Test
-
-#### Unit Tests
-
-Unit tests can be executed on the hardhat node locally
-
-- Run tests
 
 ```
 npx hardhat test --network hardhat
@@ -40,27 +46,47 @@ npx hardhat test --network hardhat
 
 <a name="run"/>
 
-### Run
+### Run Scripts
 
 ```
 npx hardhat run *script file name here* --network *network name here*
 ```
 
-#### Networks
+<a name="deploy"/>
+
+### Deploy
+
+```
+npx hardhat deploy --network *network name here*
+```
+
+<a name="networks"/>
+
+### Networks
 
 а) **test** network  
 Make sure you have _enough test tokens_ for testnet.
 
 ```
-npx hardhat run *script name here* --network *network name here*
+npx hardhat run *script name here* --network *test network name here*
 ```
 
-a) **main** network  
+b) **main** network  
 Make sure you have _enough real tokens_ in your wallet. Deployment to the mainnet costs money!
 
 ```
-npx hardhat run *script name here* --network *network name here*
+npx hardhat run *script name here* --network *main network name here*
 ```
+
+c) **local** network
+  - Run Hardhat node locally. All *deploy scripts* will be executed as well:
+  ```
+  npx hardhat node
+  ```
+  - Run sripts on the node
+  ```
+  npx hardhat run *scripts name here* --network localhost
+  ```
 
 <a name="wallets"/>
 
