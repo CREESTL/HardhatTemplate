@@ -41,7 +41,7 @@ npx hardhat coverage
 
 ### Prettier (+ Solidity Plugin)
 
-[original repo](https://github.com/prettier/prettier)  
+[original repo](https://github.com/prettier/prettier)
 [plugin repo](https://github.com/prettier-solidity/prettier-plugin-solidity)
 
 - Run code formatter
@@ -113,4 +113,8 @@ or
 npx hardhat test --fulltrace
 ```
 
-### TODO add hardat deploy
+### Hardhat Deploy
+
+[repo](https://github.com/wighawag/hardhat-deploy)
+
+This plugin brings many useful CLI options. Please, see the README in the original plugin repo above.
