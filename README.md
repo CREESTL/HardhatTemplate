@@ -1,5 +1,6 @@
 ## Project README Template
-*short project description here*
+
+_short project description here_
 
 #### Table on contents
 
@@ -7,7 +8,7 @@
 [Test](#tests)  
 [Run](#run)  
 [Wallets](#wallets)  
-[Logic](#logic)  
+[Logic](#logic)
 
 <a name="preqs">
 
@@ -15,23 +16,28 @@
 
 - Install [Git](https://git-scm.com/)
 - Install [Node.js](https://nodejs.org/en/download/)
-- Clone this repository with *git clone command here*
+- Clone this repository with _git clone command here_
 - Navigate to the directory with the cloned code
 - Install Harhdat with `npm install --save-dev hardhat`
 - Install all required dependencies with `npm install`
 - Create a file called `.env` in the root of the project with the same contents as `.env.example`
-- *examples of .env values here*
+- _examples of .env values here_
 
   :warning:**DO NOT SHARE YOUR .env FILE IN ANY WAY OR YOU RISK TO LOSE ALL YOUR FUNDS**:warning:
-<a name="tests"/>
+  <a name="tests"/>
 
 ### Test
+
 #### Unit Tests
+
 Unit tests can be executed on the hardhat node locally
+
 - Run tests
+
 ```
 npx hardhat test --network hardhat
 ```
+
 <a name="run"/>
 
 ### Run
@@ -44,12 +50,14 @@ npx hardhat run *script file name here* --network *network name here*
 
 а) **test** network  
 Make sure you have _enough test tokens_ for testnet.
+
 ```
 npx hardhat run *script name here* --network *network name here*
 ```
 
-a) **main**  network  
+a) **main** network  
 Make sure you have _enough real tokens_ in your wallet. Deployment to the mainnet costs money!
+
 ```
 npx hardhat run *script name here* --network *network name here*
 ```
@@ -82,7 +90,9 @@ Wallet's address and private key should be pasted into the `.env` file (see [Pre
 ### Logic
 
 #### Terms
-*list of terms here*
+
+_list of terms here_
 
 #### Logic Flow
-*logic explanation here*
+
+_logic explanation here_
