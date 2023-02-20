@@ -1,5 +1,5 @@
 {
-  "name": "nano_trade",
+  "name": "template_project",
   "devDependencies": {
     "@nomicfoundation/hardhat-chai-matchers": "^1.0.3",
     "@nomicfoundation/hardhat-toolbox": "^1.0.2",
@@ -31,6 +31,6 @@
     "compile": "hardhat compile",
     "test": "hardhat test",
     "coverage": "hardhat coverage",
-    "flatten": "hardhat flatten contracts/Lock.sol > flat/Flat.sol && hardhat flatten contracts/Lock.sol > flat/Flat.sol"
+    "flatten": "hardhat flatten contracts/Lock.sol > flat/LockFlat.sol"
   }
 }
