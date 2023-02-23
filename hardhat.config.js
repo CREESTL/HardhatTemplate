@@ -55,67 +55,44 @@ module.exports = {
                 // specifing blockNumber available only for AlchemyAPI
                 blockNumber: ALCHEMY_API_URL ? BLOCK_NUMBER : undefined,
             },
-            tags: ["local", "test"],
         },
         localhost: {
             gasMultiplier: 1.2,
-            tags: ["local", "test"],
         },
         mainnet: {
             url: `https://mainnet.infura.io/v3/${INFURA_API_KEY}`,
             accounts: [ACC_PRIVATE_KEY],
-            saveDeployments: true,
-            tags: ["live", "main"],
         },
         kovan: {
             url: `https://kovan.infura.io/v3/${INFURA_API_KEY}`,
             accounts: [ACC_PRIVATE_KEY],
-            saveDeployments: true,
-            tags: ["live", "test"],
         },
         rinkeby: {
             url: `https://rinkeby.infura.io/v3/${INFURA_API_KEY}`,
             accounts: [ACC_PRIVATE_KEY],
-            saveDeployments: true,
-            tags: ["live", "test"],
         },
         goerli: {
             url: `https://goerli.infura.io/v3/${INFURA_API_KEY}`,
             accounts: [ACC_PRIVATE_KEY],
-            saveDeployments: true,
-            tags: ["live", "test"],
         },
         polygon_mainnet: {
             url: `https://rpc-mainnet.maticvigil.com/`,
             accounts: [ACC_PRIVATE_KEY],
-            saveDeployments: true,
-            tags: ["live", "main"],
         },
         polygon_testnet: {
-            url: `https://matic-testnet-archive-rpc.bwarelabs.com`,
+            url: `https://matic-mumbai.chainstacklabs.com`,
             accounts: [ACC_PRIVATE_KEY],
-            saveDeployments: true,
-            tags: ["live", "test"],
         },
         bsc_mainnet: {
             url: "https://bsc-dataseed.binance.org/",
             accounts: [ACC_PRIVATE_KEY],
-            saveDeployments: true,
-            tags: ["live", "main"],
         },
         bsc_testnet: {
             url: "https://data-seed-prebsc-1-s1.binance.org:8545",
             accounts: [ACC_PRIVATE_KEY],
-            saveDeployments: true,
-            tags: ["live", "test"],
         },
         coverage: {
             url: "http://127.0.0.1:8555",
-        },
-    },
-    namedAccounts: {
-        deployer: {
-            default: 0,
         },
     },
     mocha: {

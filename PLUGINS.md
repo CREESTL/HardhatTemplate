@@ -112,9 +112,3 @@ or
 ```
 npx hardhat test --fulltrace
 ```
-
-### Hardhat Deploy
-
-[repo](https://github.com/wighawag/hardhat-deploy)
-
-This plugin brings many useful CLI options. Please, see the README in the original plugin repo above.
