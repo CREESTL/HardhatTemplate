@@ -4,14 +4,14 @@ _short project description here_
 
 #### Table on contents
 
-[Prereqiusites](#preqs)  
-[Build](#build)   
-[Test](#tests)      
-[Run Scripts](#run)   
-[Deploy](#deploy)  
-[Networks](#networks)  
-[Wallets](#wallets)    
-[Logic](#logic)  
+[Prereqiusites](#preqs)
+[Build](#build)
+[Test](#tests)
+[Run Scripts](#run)
+[Deploy](#deploy)
+[Networks](#networks)
+[Wallets](#wallets)
+[Logic](#logic)
 
 <a name="preqs">
 
@@ -28,7 +28,7 @@ _short project description here_
 
   :warning:**DO NOT SHARE YOUR .env FILE IN ANY WAY OR YOU RISK TO LOSE ALL YOUR FUNDS**:warning:
 
-<a name="build"/> 
+<a name="build"/>
 
 ### Build
 
@@ -57,21 +57,21 @@ npx hardhat run *script file name here* --network *network name here*
 ### Deploy
 
 ```
-npx hardhat deploy --network *network name here*
+npx hardhat run scripts/deploy.js --network *network name here*
 ```
 
 <a name="networks"/>
 
 ### Networks
 
-а) **test** network  
+а) **test** network
 Make sure you have _enough test tokens_ for testnet.
 
 ```
 npx hardhat run *script name here* --network *test network name here*
 ```
 
-b) **main** network  
+b) **main** network
 Make sure you have _enough real tokens_ in your wallet. Deployment to the mainnet costs money!
 
 ```
@@ -96,7 +96,7 @@ For deployment you will need to use either _your existing wallet_ or _a generate
 
 #### Using an existing wallet
 
-If you choose to use your existing wallet, then you will need to be able to export (copy/paste) its private key. For example, you can export private key from your MetaMask wallet.  
+If you choose to use your existing wallet, then you will need to be able to export (copy/paste) its private key. For example, you can export private key from your MetaMask wallet.
 Wallet's address and private key should be pasted into the `.env` file (see [Prerequisites](#preqs)).
 
 #### Creating a new wallet
@@ -107,8 +107,8 @@ If you choose to create a fresh wallet for this project, you should use `createW
 node scripts/createWallet.js
 ```
 
-This will generate a single new wallet and show its address and private key. **Save** them somewhere else!  
-A new wallet _does not_ hold any tokens. You have to provide it with tokens of your choice.  
+This will generate a single new wallet and show its address and private key. **Save** them somewhere else!
+A new wallet _does not_ hold any tokens. You have to provide it with tokens of your choice.
 Wallet's address and private key should be pasted into the `.env` file (see [Prerequisites](#preqs)).
 
 <a name="logic"/>
