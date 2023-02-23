@@ -3,8 +3,9 @@
 pragma solidity ^0.8.17;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 
-contract ERC20Mock is ERC20 {
+contract CRSTL is ERC20 {
     uint8 internal immutable _decimals;
 
     constructor(
@@ -19,11 +20,7 @@ contract ERC20Mock is ERC20 {
         return _decimals;
     }
 
-    function mint(address to, uint _amount) public {
-        _mint(to, _amount);
-    }
-
-    function burn(address to, uint _amount) public {
-        _burn(to, _amount);
+    function mint(address to, uint256 amount) public {
+        _mint(to, amount);
     }
 }
