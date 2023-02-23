@@ -1,28 +1,12 @@
 {
-  "mumbai": {
-    "Benture": {
-      "address": "0xFa69a9D10041FCfF7985451Bb72C6dd191E9a160",
-      "verification": "https://mumbai.polygonscan.com/address/0xFa69a9D10041FCfF7985451Bb72C6dd191E9a160#code"
-    },
-    "BentureAdmin": {
-      "address": "0x24f6fDE1eB8Cb97A46DcBC50cF54C5A99930E9c4",
-      "verification": "https://mumbai.polygonscan.com/address/0x24f6fDE1eB8Cb97A46DcBC50cF54C5A99930E9c4#code"
-    },
-    "BentureFactory": {
-      "address": "0xD40c37FeE3a1AD13426F82E2B8A71a162994f8dC",
-      "verification": "https://mumbai.polygonscan.com/address/0xD40c37FeE3a1AD13426F82E2B8A71a162994f8dC#code"
+  "polygon_testnet": {
+    "CRSTL": {
+      "address": "0x7572B37d0c6fEeB4897B256E3a7A45d27cd8c4a3",
+      "verification": "https://mumbai.polygonscan.com/address/0x7572B37d0c6fEeB4897B256E3a7A45d27cd8c4a3#code"
     }
   },
-  "ethereum": {
-    "Benture": {
-      "address": "",
-      "verification": ""
-    },
-    "BentureAdmin": {
-      "address": "",
-      "verification": ""
-    },
-    "BentureFactory": {
+  "polygon_mainnet": {
+    "CRSTL": {
       "address": "",
       "verification": ""
     }
