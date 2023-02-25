@@ -1,8 +1,8 @@
 {
   "polygon_testnet": {
     "CRSTL": {
-      "address": "0x7572B37d0c6fEeB4897B256E3a7A45d27cd8c4a3",
-      "verification": "https://mumbai.polygonscan.com/address/0x7572B37d0c6fEeB4897B256E3a7A45d27cd8c4a3#code"
+      "address": "0xdaB5E4C41687372c7eD2d16D5917d2d650b552bC",
+      "verification": "https://mumbai.polygonscan.com/address/0xdaB5E4C41687372c7eD2d16D5917d2d650b552bC#code"
     }
   },
   "polygon_mainnet": {
