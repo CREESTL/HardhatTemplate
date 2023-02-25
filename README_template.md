@@ -1,20 +1,20 @@
 ## Project README Template
 
-_short project description here_
+< short project description here >
 
 #### Table on contents
 
-[Prereqiusites](#preqs)
-[Build](#build)
-[Test](#tests)
-[Run Scripts](#run)
-[Deploy](#deploy)
-[Networks](#networks)
-[Wallets](#wallets)
-[Smart Contracts Upgradeability](#proxy)
-[Structure of Deploy Output File](#output)
-[Logic](#logic)
-[[Known Issues]](#issues)
+[Prereqiusites](#preqs)  
+[Build](#build)  
+[Test](#tests)  
+[Run Scripts](#run)  
+[Deploy](#deploy)  
+[Networks](#networks)  
+[Wallets](#wallets)  
+[Smart Contracts Upgradeability](#proxy)  
+[Structure of Deploy Output File](#output)  
+[Logic](#logic)  
+[[Known Issues]](#issues)  
 
 
 <a name="preqs">
@@ -87,8 +87,8 @@ Make sure you have *enough real tokens* in your wallet. Deployment to the mainne
 npx hardhat run <script name here> --network <main network name here>
 ```
 
-c) **local** network
-  - Run Hardhat node locally. All *deploy scripts* will be executed as well:
+c) **Local** network
+  - Run Hardhat node locally:
   ```
   npx hardhat node
   ```
@@ -122,7 +122,7 @@ Wallet's address and private key should be pasted into the `.env` file (see [Pre
 
 <a name="proxy"/>
 
-#### Smart Contracts Upgradeability
+### Smart Contracts Upgradeability
 
 The source code of upgradeable contracts can be updated *without* the need to redeploy the contracts afterwards. The state of contracts (values in storage) remains the same. This allows to add new features to the contracts and fix existing bugs/vulnerabilities.
 
@@ -137,7 +137,7 @@ It's *highly recommended* to study the following materials for detailed explanat
 **Deploy**
 In order to deploy contracts follow instructions in [Deploy](#deploy) section. The `scripts/deploy.js` script supports upgradeable contracts.
 
-**Upgrade**
+**Upgrade**  
 In order to upgrade contracts follow the steps:
 1. Create new versions of your contracts. Add `V2`, `V3`, etc. to the end of each new version of each contract. You might have several versions of the same contract in one directory at the same time or you can store them in separate directories
 2. Open `scripts/upgrade.js` file
@@ -145,18 +145,20 @@ In order to upgrade contracts follow the steps:
     Example:
 	```
 	let oldContractNames = [
-    	"CRSTL"
-];
-	```
+	  "CRSTL"
+	];
+	```  
+
 4. Change the `newContractNames` list if you need. This list represents new implementations of upgraded contracts. "New implementation" is any contract that *is upgrade-compatible* with the previous implementation and *has a different bytecode*.
     Example:
 	```
 	let newContractNames = [
-    	"CRSTLV2",
-];
+	  "CRSTLV2",
+	];
 	```
+	
 	*NOTE*:
-	- Each of the contracts from the both lists must be present in the project directory
+	- Each of the contracts from both lists must be present in the project directory
 	- Length of both lists must be the same
 	- Each contract from `oldContractNames` must have already been deployed in mainnet/testnet
 	- Order of contracts in the lists must be the same
@@ -170,10 +172,10 @@ If Hardhat Upgrades plugin finds your contracts *upgrade-incompatible* it will g
 After this script completes, the `implementationAddress` and `implementationVerification` fields of contracts from the `oldContractNames` will be changed inside the `scripts/deployOutput.json` file. This will indicate that contracts upgrade was finished successfully.
 Even after the upgrade, you should *use only `proxyAddress` or `proxyVerification` fields of the deploy output file to interact with contracts*.
 
-Following contracts are upgradeable:
+Following contracts are upgradeable:  
 < list of upgradeable contracts here >
 
-Following contracts are *not* upgradeable:
+Following contracts are *not* upgradeable:  
 < list of not upgradeable contracts here >
 
 
