@@ -7,7 +7,6 @@ require("solidity-coverage");
 require("hardhat-gas-reporter");
 require("hardhat-abi-exporter");
 require("hardhat-contract-sizer");
-require("hardhat-deploy");
 require("@nomiclabs/hardhat-ethers");
 require("hardhat-tracer");
 require("@primitivefi/hardhat-dodoc");
