@@ -49,7 +49,7 @@ npx hardhat test --network hardhat
 ### Run Scripts
 
 ```
-npx hardhat run *script file name here* --network *network name here*
+npx hardhat run <script file name here> --network <network name here>
 ```
 
 <a name="deploy"/>
@@ -57,25 +57,25 @@ npx hardhat run *script file name here* --network *network name here*
 ### Deploy
 
 ```
-npx hardhat run scripts/deploy.js --network *network name here*
+npx hardhat run scripts/deploy.js --network <network name here>
 ```
 
 <a name="networks"/>
 
 ### Networks
 
-а) **test** network
+а) **Test** network
 Make sure you have _enough test tokens_ for testnet.
 
 ```
-npx hardhat run *script name here* --network *test network name here*
+npx hardhat run <script name here> --network <test network name here>
 ```
 
-b) **main** network
+b) **Main** network
 Make sure you have _enough real tokens_ in your wallet. Deployment to the mainnet costs money!
 
 ```
-npx hardhat run *script name here* --network *main network name here*
+npx hardhat run <script name here> --network <main network name here>
 ```
 
 c) **local** network
@@ -85,7 +85,7 @@ c) **local** network
   ```
   - Run sripts on the node
   ```
-  npx hardhat run *scripts name here* --network localhost
+  npx hardhat run <script name here> --network localhost
   ```
 
 <a name="wallets"/>
