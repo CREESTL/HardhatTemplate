@@ -1,124 +1,119 @@
-## Project README Template
+## Hardhat Template
 
-_short project description here_
+This repository contains a template of a Hardhat project with additional plugins integrated. Use it as a base for your own project.
 
-#### Table on contents
 
-[Prereqiusites](#preqs)
-[Build](#build)
-[Test](#tests)
-[Run Scripts](#run)
-[Deploy](#deploy)
-[Networks](#networks)
-[Wallets](#wallets)
-[Logic](#logic)
+### List of plugins:
 
-<a name="preqs">
+### Solhint
 
-#### Prerequisites
+[repo](https://github.com/protofire/solhint)
 
-- Install [Git](https://git-scm.com/)
-- Install [Node.js](https://nodejs.org/en/download/)
-- Clone this repository with _git clone command here_
-- Navigate to the directory with the cloned code
-- Install Hardhat with `npm install --save-dev hardhat`
-- Install all required dependencies with `npm install`
-- Create a file called `.env` in the root of the project with the same contents as `.env.example`
-- Place your secret API keys, private keys, etc. to the `.env` file
-
-  :warning:**DO NOT SHARE YOUR .env FILE IN ANY WAY OR YOU RISK TO LOSE ALL YOUR FUNDS**:warning:
-
-<a name="build"/>
-
-### Build
+- Run linter
 
 ```
-npx hardhat compile
+solhint 'contracts/**/*.sol'
 ```
 
-<a name="tests"/>
+### Slither
 
-### Test
+[repo](https://github.com/crytic/slither)
 
-```
-npx hardhat test --network hardhat
-```
-
-<a name="run"/>
-
-### Run Scripts
+- Install
 
 ```
-npx hardhat run *script file name here* --network *network name here*
+pip3 install slither-analyzer
 ```
 
-<a name="deploy"/>
-
-### Deploy
+- Run the security check
 
 ```
-npx hardhat run scripts/deploy.js --network *network name here*
+slither .
 ```
 
-<a name="networks"/>
+### Solidity Coverage
 
-### Networks
+[repo](https://github.com/sc-forks/solidity-coverage)
 
-а) **test** network
-Make sure you have _enough test tokens_ for testnet.
-
-```
-npx hardhat run *script name here* --network *test network name here*
-```
-
-b) **main** network
-Make sure you have _enough real tokens_ in your wallet. Deployment to the mainnet costs money!
+- Run the coverage check
 
 ```
-npx hardhat run *script name here* --network *main network name here*
+npx hardhat coverage
 ```
 
-c) **local** network
-  - Run Hardhat node locally. All *deploy scripts* will be executed as well:
-  ```
-  npx hardhat node
-  ```
-  - Run sripts on the node
-  ```
-  npx hardhat run *scripts name here* --network localhost
-  ```
+- Open the results in the browser
+  - See results in `coverage/index.html` file
 
-<a name="wallets"/>
+### Prettier (+ Solidity Plugin)
 
-### Wallets
+[original repo](https://github.com/prettier/prettier)
+[plugin repo](https://github.com/prettier-solidity/prettier-plugin-solidity)
 
-For deployment you will need to use either _your existing wallet_ or _a generated one_.
-
-#### Using an existing wallet
-
-If you choose to use your existing wallet, then you will need to be able to export (copy/paste) its private key. For example, you can export private key from your MetaMask wallet.
-Wallet's address and private key should be pasted into the `.env` file (see [Prerequisites](#preqs)).
-
-#### Creating a new wallet
-
-If you choose to create a fresh wallet for this project, you should use `createWallet` script from `scripts/` directory.
+- Run code formatter
 
 ```
-node scripts/createWallet.js
+npx prettier --write .
 ```
 
-This will generate a single new wallet and show its address and private key. **Save** them somewhere else!
-A new wallet _does not_ hold any tokens. You have to provide it with tokens of your choice.
-Wallet's address and private key should be pasted into the `.env` file (see [Prerequisites](#preqs)).
+### Hardhat Dodoc
 
-<a name="logic"/>
+[repo](https://github.com/primitivefinance/primitive-dodoc)
 
-### Logic
+- Run
 
-#### Terms
+```
+npx hardhat dodoc
+```
 
-_list of terms here_
+- It's configured to run on _each_ contracts compilation
+- See results in `docs/` directory
 
-#### Logic Flow
+### Hardhat Gas Reporter
 
-_logic explanation here_
+[repo](https://github.com/cgewecke/hardhat-gas-reporter)
+
+- Run (automatically runs with tests)
+
+```
+npx hardhat test
+```
+
+### Hardhat Abi Exporter
+
+[repo](https://github.com/ItsNickBarry/hardhat-abi-exporter)
+
+- Run
+
+```
+npx hardhat export-abi
+```
+
+It automatically runs on contracts compilation
+
+### Hardhat Contract Sizer
+
+[repo](https://github.com/ItsNickBarry/hardhat-contract-sizer)
+
+- Run
+
+```
+npx hardhat size-contracts
+```
+
+It automatically runs on contracts compilation
+
+### Hardhat Tracer
+
+[repo](https://github.com/zemse/hardhat-tracer)
+
+- Run
+
+```
+npx hardhat test --trace
+```
+
+or
+
+```
+npx hardhat test --fulltrace
+```
