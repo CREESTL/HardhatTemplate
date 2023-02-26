@@ -7,8 +7,8 @@
     "CRSTLUpgradeable": {
       "proxyAddress": "0x5E3249a71fC63b905A54073340a9B9Ac75cC9d30",
       "proxyVerification": "https://mumbai.polygonscan.com/address/0x5E3249a71fC63b905A54073340a9B9Ac75cC9d30#code",
-      "implementationAddress": "0xA30aeBF7783c64715190636079FCd86d748ca9f0",
-      "implementationVerification": "https://mumbai.polygonscan.com/address/0xA30aeBF7783c64715190636079FCd86d748ca9f0#code"
+      "implementationAddress": "0x3750426d598Ca91FE533B48f23B29ae67359D81C",
+      "implementationVerification": "https://mumbai.polygonscan.com/address/0x3750426d598Ca91FE533B48f23B29ae67359D81C#code"
     }
   },
   "polygon_mainnet": {
