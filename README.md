@@ -1,6 +1,7 @@
 ## Hardhat Template
 
-This repository contains a template of a Hardhat project with additional plugins integrated. Use it as a base for your own project.
+This repository contains a template of a Hardhat project with additional plugins integrated. Use it as a base for your own project.  
+Feel free to customize it further in any way you like, as well as remove parts you find redundant.
 
 ### List of plugins:
 
@@ -77,7 +78,7 @@ npx hardhat dodoc
 npx hardhat test
 ```
 
-### Hardhat Abi Exporter
+### Hardhat ABI Exporter
 
 [repo](https://github.com/ItsNickBarry/hardhat-abi-exporter)
 
