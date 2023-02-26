@@ -4,17 +4,16 @@ const { anyValue } = require("@nomicfoundation/hardhat-chai-matchers/withArgs");
 const { loadFixture } = require("@nomicfoundation/hardhat-network-helpers");
 const { parseEther, parseUnits } = ethers.utils;
 
-
-
 describe("CREESTL Token", function () {
     async function deploys() {
-        [ownerAcc, clientAcc1, clientAcc2, clientAcc3] = await ethers.getSigners();
+        [ownerAcc, clientAcc1, clientAcc2, clientAcc3] =
+            await ethers.getSigners();
         let tokenFactory = await ethers.getContractFactory("CRSTL");
         let token = await tokenFactory.deploy("CREESTL", "CRSTL", 18);
         await token.deployed();
         await token.mint(ownerAcc.address, parseEther("1000000"));
 
-        return {token};
+        return { token };
     }
 
     describe("Deployment", async function () {
@@ -29,7 +28,6 @@ describe("CREESTL Token", function () {
 
     describe("Transactions", async function () {
         it("OK: Transfer tokens between accounts", async function () {
-
             let { token } = await loadFixture(deploys);
 
             let transferAmount = parseEther("100");
@@ -67,7 +65,6 @@ describe("CREESTL Token", function () {
                 .connect(ownerAcc)
                 .transfer(clientAcc1.address, transferAmount1);
 
-
             await token
                 .connect(ownerAcc)
                 .transfer(clientAcc2.address, transferAmount2);
@@ -75,9 +72,7 @@ describe("CREESTL Token", function () {
             let endOwnerBalance = await token.balanceOf(ownerAcc.address);
 
             expect(endOwnerBalance).to.equal(
-                startOwnerBalance
-                    .sub(transferAmount1)
-                    .sub(transferAmount2)
+                startOwnerBalance.sub(transferAmount1).sub(transferAmount2)
             );
 
             let endClientBalance1 = await token.balanceOf(clientAcc1.address);

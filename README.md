@@ -2,7 +2,6 @@
 
 This repository contains a template of a Hardhat project with additional plugins integrated. Use it as a base for your own project.
 
-
 ### List of plugins:
 
 ### Solhint

@@ -7,15 +7,19 @@ import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 
-contract CRSTLUpgradeableV2 is Initializable, ERC20Upgradeable, OwnableUpgradeable, UUPSUpgradeable {
-    
+contract CRSTLUpgradeableV2 is
+    Initializable,
+    ERC20Upgradeable,
+    OwnableUpgradeable,
+    UUPSUpgradeable
+{
     uint8 internal _decimals;
 
     function initialize(
         string memory name,
         string memory symbol,
         uint8 decimals_
-    ) initializer public {
+    ) public initializer {
         __ERC20_init(name, symbol);
         __Ownable_init();
         __UUPSUpgradeable_init();
@@ -34,9 +38,7 @@ contract CRSTLUpgradeableV2 is Initializable, ERC20Upgradeable, OwnableUpgradeab
         _mint(to, amount);
     }
 
-    function _authorizeUpgrade(address newImplementation)
-        internal
-        onlyOwner
-        override
-    {}
+    function _authorizeUpgrade(
+        address newImplementation
+    ) internal override onlyOwner {}
 }

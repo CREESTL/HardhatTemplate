@@ -9,14 +9,10 @@ const fileName = "./deployOutput.json";
 const OUTPUT_DEPLOY = require(fileName);
 
 // List of contracts that need to be upgraded
-let oldContractNames = [
-    "CRSTLUpgradeable",
-];
+let oldContractNames = ["CRSTLUpgradeable"];
 
 // List of new versions of upgraded contracts
-let newContractNames = [
-    "CRSTLUpgradeableV2"
-];
+let newContractNames = ["CRSTLUpgradeableV2"];
 
 if (oldContractNames.length != newContractNames.length) {
     console.error("Arrays length must be equal!");

@@ -9,7 +9,7 @@ require("hardhat-abi-exporter");
 require("hardhat-contract-sizer");
 require("@nomiclabs/hardhat-ethers");
 require("hardhat-tracer");
-require('@openzeppelin/hardhat-upgrades');
+require("@openzeppelin/hardhat-upgrades");
 require("@primitivefi/hardhat-dodoc");
 require("dotenv").config();
 

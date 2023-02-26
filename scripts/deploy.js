@@ -22,11 +22,7 @@ async function main() {
     contractName = "CRSTL";
     console.log(`[${contractName}]: Start of Deployment...`);
     _contractProto = await ethers.getContractFactory(contractName);
-    contractDeployTx = await _contractProto.deploy(
-        "CREESTL",
-        "CRSTL",
-        18,
-    );
+    contractDeployTx = await _contractProto.deploy("CREESTL", "CRSTL", 18);
     token = await contractDeployTx.deployed();
     console.log(`[${contractName}]: Deployment Finished!`);
     OUTPUT_DEPLOY[network.name][contractName].address = token.address;
@@ -39,7 +35,8 @@ async function main() {
     if (network.name === "polygon_mainnet") {
         url = "https://polygonscan.com/address/" + token.address + "#code";
     } else if (network.name === "polygon_testnet") {
-        url = "https://mumbai.polygonscan.com/address/" + token.address + "#code";
+        url =
+            "https://mumbai.polygonscan.com/address/" + token.address + "#code";
     }
 
     OUTPUT_DEPLOY[network.name][contractName].verification = url;
@@ -47,11 +44,7 @@ async function main() {
     try {
         await hre.run("verify:verify", {
             address: token.address,
-            constructorArguments: [
-                "CREESTL",
-                "CRSTL",
-                18
-            ]
+            constructorArguments: ["CREESTL", "CRSTL", 18],
         });
     } catch (error) {
         console.error(error);
@@ -66,26 +59,35 @@ async function main() {
     contractName = "CRSTLUpgradeable";
     console.log(`[${contractName}]: Start of Deployment...`);
     _contractProto = await ethers.getContractFactory(contractName);
-    tokenUpgradeable = await upgrades.deployProxy(_contractProto, ["CREESTLUpgradeable", "CRSTLU", 18], {
-        initializer: "initialize",
-        kind: "uups",
-    });
+    tokenUpgradeable = await upgrades.deployProxy(
+        _contractProto,
+        ["CREESTLUpgradeable", "CRSTLU", 18],
+        {
+            initializer: "initialize",
+            kind: "uups",
+        }
+    );
     await tokenUpgradeable.deployed();
     console.log(`[${contractName}]: Deployment Finished!`);
-    OUTPUT_DEPLOY[network.name][contractName].proxyAddress = tokenUpgradeable.address;
+    OUTPUT_DEPLOY[network.name][contractName].proxyAddress =
+        tokenUpgradeable.address;
 
     await delay(90000);
 
     // Verify implementation
     console.log(`[${contractName}][Implementation]: Start of Verification...`);
 
-    let tokenUpgradeableImplAddress = await upgrades.erc1967.getImplementationAddress(
-        tokenUpgradeable.address
-    );
+    let tokenUpgradeableImplAddress =
+        await upgrades.erc1967.getImplementationAddress(
+            tokenUpgradeable.address
+        );
     OUTPUT_DEPLOY[network.name][contractName].implementationAddress =
         tokenUpgradeableImplAddress;
     if (network.name === "polygon_mainnet") {
-        url = "https://polygonscan.com/address/" + tokenUpgradeableImplAddress + "#code";
+        url =
+            "https://polygonscan.com/address/" +
+            tokenUpgradeableImplAddress +
+            "#code";
     } else if (network.name === "polygon_testnet") {
         url =
             "https://mumbai.polygonscan.com/address/" +
@@ -95,9 +97,9 @@ async function main() {
     OUTPUT_DEPLOY[network.name][contractName].implementationVerification = url;
     try {
         await hre.run("verify:verify", {
-            address: tokenUpgradeableImplAddress
+            address: tokenUpgradeableImplAddress,
         });
-    } catch (error) { }
+    } catch (error) {}
 
     // Initialize implementation if it has not been initialized yet
     let tokenUpgradeableImpl = await ethers.getContractAt(
@@ -106,13 +108,16 @@ async function main() {
     );
     try {
         await tokenUpgradeableImpl.initialize("CRSTLUpgradeable", "CRSTLU", 18);
-    } catch (error) { }
+    } catch (error) {}
     console.log(`[${contractName}][Implementation]: Verification Finished!`);
 
     // Verify proxy
     console.log(`[${contractName}][Proxy]: Start of Verification...`);
     if (network.name === "polygon_mainnet") {
-        url = "https://polygonscan.com/address/" + tokenUpgradeable.address + "#code";
+        url =
+            "https://polygonscan.com/address/" +
+            tokenUpgradeable.address +
+            "#code";
     } else if (network.name === "polygon_testnet") {
         url =
             "https://mumbai.polygonscan.com/address/" +
@@ -125,7 +130,7 @@ async function main() {
         await hre.run("verify:verify", {
             address: tokenUpgradeable.address,
         });
-    } catch (error) { }
+    } catch (error) {}
     console.log(`[${contractName}][Proxy]: Verification Finished!`);
 
     // ====================================================
@@ -136,7 +141,8 @@ async function main() {
     );
 
     console.log(
-        `\n***Deployment and verification are completed!***\n***See Results in "${__dirname + fileName
+        `\n***Deployment and verification are completed!***\n***See Results in "${
+            __dirname + fileName
         }" file***`
     );
 }
