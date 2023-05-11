@@ -6,3 +6,5 @@ flat
 cache
 artifacts
 docs
+coverage.json
+README.md
