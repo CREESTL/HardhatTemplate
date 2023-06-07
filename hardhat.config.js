@@ -75,6 +75,10 @@ module.exports = {
             url: `https://goerli.infura.io/v3/${INFURA_API_KEY}`,
             accounts: [ACC_PRIVATE_KEY],
         },
+        sepolia: {
+            url: `https://sepolia.infura.io/v3/${INFURA_API_KEY}`,
+            accounts: [ACC_PRIVATE_KEY],
+        },
         polygon_mainnet: {
             url: `https://rpc-mainnet.maticvigil.com/`,
             accounts: [ACC_PRIVATE_KEY],
@@ -141,6 +145,7 @@ module.exports = {
             kovan: ETHERSCAN_API_KEY,
             rinkeby: ETHERSCAN_API_KEY,
             goerli: ETHERSCAN_API_KEY,
+            sepolia: ETHERSCAN_API_KEY,
             bsc: BSCSCAN_API_KEY,
             bscTestnet: BSCSCAN_API_KEY,
             polygon: POLYGONSCAN_API_KEY,
