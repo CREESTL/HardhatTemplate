@@ -4,16 +4,16 @@
 
 #### Table on contents
 
-[Prereqiusites](#preqs)  
-[Build](#build)  
-[Test](#tests)  
-[Run Scripts](#run)  
-[Deploy](#deploy)  
-[Networks](#networks)  
-[Wallets](#wallets)  
-[Smart Contracts Upgradeability](#proxy)  
-[Structure of Deploy Output File](#output)  
-[Logic](#logic)  
+[Prereqiusites](#preqs)
+[Build](#build)
+[Test](#tests)
+[Run Scripts](#run)
+[Deploy](#deploy)
+[Networks](#networks)
+[Wallets](#wallets)
+[Smart Contracts Upgradeability](#proxy)
+[Structure of Deploy Output File](#output)
+[Logic](#logic)
 [[Known Issues]](#issues)
 
 <a name="preqs">
@@ -143,7 +143,7 @@ It's _highly recommended_ to study the following materials for detailed explanat
 **Deploy**
 In order to deploy contracts follow instructions in [Deploy](#deploy) section. The `scripts/deploy.js` script supports upgradeable contracts.
 
-**Upgrade**  
+**Upgrade**
 In order to upgrade contracts follow the steps:
 
 1. Create new versions of your contracts. Add `V2`, `V3`, etc. to the end of each new version of each contract. You might have several versions of the same contract in one directory at the same time or you can store them in separate directories
@@ -184,10 +184,10 @@ If Hardhat Upgrades plugin finds your contracts _upgrade-incompatible_ it will g
 After this script completes, the `implementationAddress` and `implementationVerification` fields of contracts from the `oldContractNames` will be changed inside the `scripts/deployOutput.json` file. This will indicate that contracts upgrade was finished successfully.
 Even after the upgrade, you should _use only `proxyAddress` or `proxyVerification` fields of the deploy output file to interact with contracts_.
 
-Following contracts are upgradeable:  
+Following contracts are upgradeable:
 < list of upgradeable contracts here >
 
-Following contracts are _not_ upgradeable:  
+Following contracts are _not_ upgradeable:
 < list of not upgradeable contracts here >
 
 <a name="output"/>
@@ -223,5 +223,3 @@ Each part contains information about all deployed contracts:
 <a name="issues"/>
 
 **[Known Issues]**
-
-< issues here ></issues>
