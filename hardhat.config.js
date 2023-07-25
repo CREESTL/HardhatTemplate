@@ -80,12 +80,14 @@ module.exports = {
             accounts: [ACC_PRIVATE_KEY],
         },
         polygon_mainnet: {
-            url: `https://rpc-mainnet.maticvigil.com/`,
+            url: `https://polygon.publicnode.com`,
             accounts: [ACC_PRIVATE_KEY],
+            gasPrice: 35000000000
         },
         polygon_testnet: {
-            url: `https://matic-mumbai.chainstacklabs.com`,
+            url: `https://polygon-mumbai-bor.publicnode.com`,
             accounts: [ACC_PRIVATE_KEY],
+            gasPrice: 35000000000
         },
         bsc_mainnet: {
             url: "https://bsc-dataseed.binance.org/",
