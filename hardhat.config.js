@@ -80,7 +80,7 @@ module.exports = {
             accounts: [ACC_PRIVATE_KEY],
         },
         polygon_mainnet: {
-            url: `https://polygon.publicnode.com`,
+            url: `https://polygon-bor.publicnode.com`,
             accounts: [ACC_PRIVATE_KEY],
             gasPrice: 35000000000
         },
